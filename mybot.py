@@ -1,5 +1,6 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+import os
 
 # Replace with your GitHub repo URL
 GITHUB_REPO_URL = "https://github.com/MahiAlex38/C-Modular-programming"
@@ -13,9 +14,8 @@ async def repo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Start the bot
 if __name__ == '__main__':
-   import os
-TOKEN = os.getenv("BOT_TOKEN")
-app = ApplicationBuilder().token(TOKEN).build()
+    TOKEN = os.getenv("BOT_TOKEN")
+    app = ApplicationBuilder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("repo", repo))
